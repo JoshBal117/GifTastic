@@ -1,16 +1,24 @@
 $('document').ready(function() {
+
+
+/*   This is going to be my inital  empty array of giphs to be pulled. */
+      let topic = []
+
+    /* these are going to be the rest of the vairables for the app */
+
     const key = "RvbjeZv71Wbn8T8UwLoknIV7LB7nCZOL";
     const q;
     let queryURL: "https://api.giphy.com/v1/gifs/search?api_keys=" + key + "&q=" +
+    console.log(queryURL);
 
-
-    function displayMeme() {
+    function displayHeroes() {
         $.ajax({
             url: queryURL,
             method: "GET"
           }).then(function(response){
               
             let results = Response.data;
+            console.log(results)
         })
     }
 
