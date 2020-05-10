@@ -1,0 +1,119 @@
+  
+body {
+    background-image: url(../images/yellowbg.png);
+    background-size: 100%;
+    color: rgb(22, 34, 51);
+    font-family: 'Boogaloo', cursive;
+}
+
+.container {
+    padding: 20px;
+    text-align: center;
+}
+
+#titlebox {
+    position: relative;
+    text-align: center;
+    margin: 5px 100px;
+    color: white;
+}
+
+#centered {
+    position: absolute;
+    top: 47%;
+    left: 49%;
+    transform: translate(-50%, -50%);
+}
+
+.img {
+    width: 60%;
+}
+
+h1 {
+    font-size: 50px;
+    font-family: 'Bangers', cursive;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 25px;
+}
+
+@media only screen and (max-width: 1200px) {
+    h1 {
+        font-size: 30px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    .img {
+        width: 60%
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 20px;
+    }
+    .img {
+        width: 60%
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    h1 {
+        font-size: 20px;
+    }
+    h2 {
+        font-size: 20px;
+    }
+    h3 {
+        font-size: 15px;
+    }
+    .img {
+        width: 80%
+    }
+}
+
+@media only screen and (max-width: 420px) {
+    body {
+        background-image: url("../images/mobilebg.png");
+        background-size: 200%;        
+    }
+    .img {
+        display: none;
+    }
+    #titlebox {
+        position: relative;
+        text-align: center;
+        margin: 50px 0px; 
+    }
+    #centered {
+        position: relative;
+        text-align: center;
+        margin: 50px;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    h1 {
+        font-size: 100px;
+        color: rgb(22, 34, 51);
+    }
+    h2, h3{
+        font-size: 20px;
+    }
+}
