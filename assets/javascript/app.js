@@ -7,29 +7,12 @@ $('document').ready(function() {
         "Batman",
         "Iron Man",
         "Gundam",
-        "Power Ranger",
+        "Power Rangers",
         "Thor",
         "Goku",
       ];
 
     /* these are going to be the rest of the vairables for the app */
-
-    function renderButtons() {
-      $("#addedButtons").empty();
-      for (let i = 0; i < topicHeroes.length; i++) {
-        var heroButtons =$("<button>")
-        heroButtons.addClass("hero-btn");
-        heroButtons.attr("data-name", topicHeroes[i]);
-        heroButtons.text(topicHeroes[i]);
-        $("#addedButtons").append(heroButtons);
-     }
-    }; 
-  
-  
-    
-
-    let search = $(this).data("search")
-    console.log("search, ready");
 
     const apiKey = "RvbjeZv71Wbn8T8UwLoknIV7LB7nCZOL";
     var q = $(this).attr("data-name");
@@ -37,7 +20,7 @@ $('document').ready(function() {
 
     function displayHeroes(heroName) {
       console.log("heroName")
-      let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey +  "&q=" + q +  "" + heroName + "&limit=10&offset=08rating=PG&lang=en"
+      let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey +  "&q=" + q +  "" + heroName + "&limit=10&offset=08rating=G&lang=en"
         $.ajax({ /* this is the ajax request tht will pull the giphs from giphy using the API */
             url: queryURL,
             method: "GET"
@@ -52,35 +35,45 @@ $('document').ready(function() {
               let heroImage = $("<img>"); 
               heroImage.attr("data-gif", gif);
               heroImage.attr("data-still", still);
-              heroImage.attr("data-state", gif)
-              heroImage.addClass("heroImage")
+              heroImage.attr("data-state", gif);
+              heroImage.addClass("heroImage");
               heroImage.attr("src", response.data[i].images.fixed_height.url);
               heroDiv.append(heroImage);
-              heroDiv.append(rating)
+              heroDiv.append(rating);
               $("#addedHeroes").prepend(heroDiv);
               
             }
         })
     }
 
+    function renderButtons() {
+      $("#addedButtons").empty();
+      for (let i = 0; i < topicHeroes.length; i++) {
+            var heroButtons =$("<button>")
+            heroButtons.addClass("hero-btn");
+            heroButtons.attr("data-name", topicHeroes[i]);
+            heroButtons.text(topicHeroes[i]);
+            $("#addedButtons").append(heroButtons);
+          }
+    }; 
+  
+
     $('#add-hero').click(function(event) {
       event.preventDefault();
        var topicHeroes = $('#hero-input').val().trim();
       if (topicHeroes.length > 2) {
         topicHeroes.push(topicHeroes)
-      } 
+      }; 
       renderButtons();
     });
 
     $(document).on("click", ".hero-btn", function(){
-      var heroName = $(this).data("name");
+      let heroName = $(this).data("name");
       console.log("heroName")
       console.log($(this));
       displayHeroes(heroName);
 
-
-
-
+    });
 
 
     $(document).on("click", ".heroImage", function() {
@@ -95,5 +88,5 @@ $('document').ready(function() {
         });
     
         renderButtons();
-    });
+    
 })
