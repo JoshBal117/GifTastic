@@ -65,7 +65,7 @@ $('document').ready(function() {
 
     $('#add-hero').click(function(event) {
       event.preventDefault();
-      let hero = $('#hero-input').val().trim();
+       var topicHeroes = $('#hero-input').val().trim();
       if (topicHeroes.length > 2) {
         topicHeroes.push(topicHeroes)
       } 
