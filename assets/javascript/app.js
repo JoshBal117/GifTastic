@@ -4,14 +4,12 @@ $('document').ready(function() {
 
 /*   This is going to be my inital array of topics-Heroes */
       let topicHeroes = [
-        "Avengers",
-        "Justice League",
-        "Kamen Rider",
-        "Power Rangers",
-        "Master Chief",
+        "Batman",
+        "Iron Man",
+        "Gundam",
+        "Power Ranger",
+        "Thor",
         "Goku",
-        "One Punch Man",
-        
       ];
 
     /* these are going to be the rest of the vairables for the app */
@@ -39,7 +37,7 @@ $('document').ready(function() {
 
     function displayHeroes(heroName) {
       console.log("heroName")
-      let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey +  "&q=" + q +  "&limit=10&offset=08rating=PG&lang=en"
+      let queryURL = "https://api.giphy.com/v1/gifs/search?api_key=" + apiKey +  "&q=" + q +  "" + heroName + "&limit=10&offset=08rating=PG&lang=en"
         $.ajax({ /* this is the ajax request tht will pull the giphs from giphy using the API */
             url: queryURL,
             method: "GET"
@@ -87,7 +85,6 @@ $('document').ready(function() {
 
     $(document).on("click", ".heroImage", function() {
         let image = $(this)
-        
         if (image.attr('data-state') === 'gif') {
             image.attr('src', image.attr('data-still')); 
             image.attr('data-state', 'still');
@@ -97,5 +94,6 @@ $('document').ready(function() {
           }
         });
     
+        renderButtons();
     });
 })
